@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// routes PQR
+Route::group(['prefix' => 'pqr', 'as' => 'pqr.'], function () {
+    Route::get('/', 'Pqr@index')->name('index');
+    Route::get('/create', 'Pqr@create')->name('index');
+    Route::get('/update/{id?}', 'Pqr@update')->name('update');
+
+    Route::post('/create', 'Pqr@crearPqr')->name('crearPqr');
+    Route::post('/update/{id?}', 'Pqr@responderPqr')->name('responderPqr');
+});
